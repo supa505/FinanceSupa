@@ -1,0 +1,20 @@
+<!doctype html><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#059669"><title>Catat Transaksi — FinanceSupa</title><link rel="manifest" href="manifest.json"><link rel="stylesheet" href="styles.css"></head><body><div class="app"><main class="content">
+<div class="back"><a href="screen_1_dashboard.html">← Kembali</a><h2 style="margin:0">Catat Transaksi</h2></div>
+<div class="card"><form class="form" id="form">
+<div class="field"><label>Jenis</label><select id="type"><option value="income">Pemasukan</option><option value="expense">Pengeluaran</option></select></div>
+<div class="field"><label>Nominal</label><input id="amount" type="number" min="0" step="1000" placeholder="0" required></div>
+<div class="field"><label>Kategori</label><select id="category"><option>Gaji</option><option>Makanan</option><option>Transportasi</option><option>Belanja</option><option>Tagihan</option><option>Hiburan</option><option>Tabungan</option><option>Lainnya</option></select></div>
+<div class="field"><label>Keterangan</label><input id="note" placeholder="Contoh: Uang saku"></div>
+<button class="btn primary" type="submit">Simpan Transaksi</button>
+</form></div>
+<div class="section"><div class="card"><h2>Riwayat</h2><div id="history"></div></div></div>
+</main>
+    <nav class="nav">
+      <a class="" href="screen_1_dashboard.html"><span>⌂</span>Beranda</a>
+      <a class="" href="screen_2_bank_sync.html"><span>▣</span>Akun</a>
+      <a class="active" href="screen_3_transaction_input.html"><span>＋</span>Transaksi</a>
+      <a class="" href="screen_4_analytics.html"><span>◔</span>Analisis</a>
+    </nav></div><script src="app.js"></script><script>
+function renderHistory(){const d=getData();const el=document.getElementById('history');el.innerHTML=d.transactions.length?d.transactions.slice().reverse().map((x,i)=>`<div class="tx"><div class="tx-left"><div class="tx-icon">${txIcon(x)}</div><div><b>${x.note||'Transaksi'}</b><div class="small">${x.category} • ${x.date}</div></div></div><b class="${x.type==='income'?'green':'red'}">${x.type==='income'?'+':'-'}${rupiah(x.amount)}</b></div>`).join(''):'<div class="empty">Belum ada transaksi. Semua data masih Rp0.</div>'}
+document.getElementById('form').addEventListener('submit',e=>{e.preventDefault();const d=getData();d.transactions.push({type:document.getElementById('type').value,amount:Number(document.getElementById('amount').value||0),category:document.getElementById('category').value,note:document.getElementById('note').value,date:new Date().toLocaleDateString('id-ID',{day:'2-digit',month:'short',year:'numeric'})});saveData(d);e.target.reset();renderHistory();alert('Transaksi tersimpan.');});renderHistory();
+</script></body></html>

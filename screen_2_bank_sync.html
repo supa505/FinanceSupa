@@ -1,0 +1,15 @@
+<!doctype html><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#059669"><title>Akun & Bank — FinanceSupa</title><link rel="manifest" href="manifest.json"><link rel="stylesheet" href="styles.css"></head><body><div class="app"><main class="content">
+<div class="back"><a href="screen_1_dashboard.html">← Kembali</a><h2 style="margin:0">Akun & Bank</h2></div>
+<div class="notice">Mode demo aktif. Tidak ada koneksi bank sungguhan dan saldo awal semuanya Rp0.</div>
+<div class="section"><div class="card"><h2>Akun Terhubung</h2><div id="accounts"></div><button class="btn primary" style="width:100%;margin-top:10px" onclick="addDemoAccount()">＋ Tambah akun demo</button></div></div>
+<div class="section"><div class="card"><h2>Saldo Total</h2><div class="amount green" id="bankTotal">Rp0</div><div class="small">Semua akun dimulai dari Rp0.</div></div></div>
+</main>
+    <nav class="nav">
+      <a class="" href="screen_1_dashboard.html"><span>⌂</span>Beranda</a>
+      <a class="active" href="screen_2_bank_sync.html"><span>▣</span>Akun</a>
+      <a class="" href="screen_3_transaction_input.html"><span>＋</span>Transaksi</a>
+      <a class="" href="screen_4_analytics.html"><span>◔</span>Analisis</a>
+    </nav></div><script src="app.js"></script><script>
+function renderBank(){const d=getData();const el=document.getElementById('accounts');el.innerHTML=d.accounts.length?d.accounts.map((a,i)=>`<div class="account"><div style="display:flex;gap:10px;align-items:center"><div class="banklogo">${a.name.slice(0,1)}</div><div><b>${a.name}</b><div class="small">${a.type}</div></div></div><b>${rupiah(a.balance)}</b></div>`).join(''):'<div class="empty">Belum ada akun terhubung.</div>';document.getElementById('bankTotal').textContent=rupiah(d.accounts.reduce((s,a)=>s+Number(a.balance||0),0))}
+function addDemoAccount(){const d=getData();d.accounts.push({name:"Akun Demo "+(d.accounts.length+1),type:"E-Wallet",balance:0});saveData(d);renderBank()}renderBank();
+</script></body></html>

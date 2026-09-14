@@ -1,0 +1,23 @@
+<!doctype html><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#059669"><title>Dashboard — FinanceSupa</title><link rel="manifest" href="manifest.json"><link rel="stylesheet" href="styles.css"></head><body><div class="app"><main class="content">
+<div class="top"><div class="user"><div class="avatar">S</div><div><div class="small">FinanceSupa</div><h1>Selamat datang, <span data-user>Supa</span> 👋</h1></div></div><button class="iconbtn" onclick="resetData()" title="Reset data">↺</button></div>
+<div class="balance"><div class="balance-row"><span class="label">Total Saldo</span><button class="iconbtn" style="width:34px;height:34px;background:#ffffff18;color:#fff;border-color:#ffffff33" onclick="toggleBal()">◉</button></div><div class="amount" id="balance">Rp0</div><span class="pill">Data awal • Rp0</span></div>
+<div class="actions">
+<a class="action" href="screen_3_transaction_input.html"><div class="ico">＋</div><div class="small">Catat</div></a>
+<a class="action" href="screen_2_bank_sync.html"><div class="ico" style="background:#eff6ff">▣</div><div class="small">Akun</div></a>
+<a class="action" href="screen_4_analytics.html"><div class="ico" style="background:#f5f3ff">◔</div><div class="small">Analisis</div></a>
+<button class="action" onclick="resetData()"><div class="ico" style="background:#fff7ed">↻</div><div class="small">Reset</div></button>
+</div>
+<div class="section"><div class="stats"><div class="stat"><span class="small">Pemasukan</span><b class="green" id="income">Rp0</b></div><div class="stat"><span class="small">Pengeluaran</span><b class="red" id="expense">Rp0</b></div></div></div>
+<div class="section"><div class="card"><div class="balance-row"><h2>Transaksi Terbaru</h2><a href="screen_3_transaction_input.html" class="small green">Tambah →</a></div><div id="recent"></div></div></div>
+<div class="footer">FinanceSupa • data tersimpan lokal di browser</div>
+</main>
+    <nav class="nav">
+      <a class="active" href="screen_1_dashboard.html"><span>⌂</span>Beranda</a>
+      <a class="" href="screen_2_bank_sync.html"><span>▣</span>Akun</a>
+      <a class="" href="screen_3_transaction_input.html"><span>＋</span>Transaksi</a>
+      <a class="" href="screen_4_analytics.html"><span>◔</span>Analisis</a>
+    </nav></div><script src="app.js"></script><script>
+let visible=true;
+function render(){const t=totals();document.getElementById('income').textContent=rupiah(t.income);document.getElementById('expense').textContent=rupiah(t.expense);document.getElementById('balance').textContent=visible?rupiah(t.balance):"Rp •••••••";const d=getData();const el=document.getElementById('recent');if(!d.transactions.length){el.innerHTML='<div class="empty">Belum ada transaksi.<br>Mulai dengan tombol <b>Catat</b>.</div>'}else{el.innerHTML=d.transactions.slice(-5).reverse().map(x=>`<div class="tx"><div class="tx-left"><div class="tx-icon">${txIcon(x)}</div><div><b>${x.note||'Transaksi'}</b><div class="small">${x.category||'Lainnya'} • ${x.date}</div></div></div><b class="${x.type==='income'?'green':'red'}">${x.type==='income'?'+':'-'}${rupiah(x.amount)}</b></div>`).join('')}}}
+function toggleBal(){visible=!visible;render()} render();
+</script></body></html>

@@ -1,0 +1,14 @@
+<!doctype html><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#059669"><title>Analisis — FinanceSupa</title><link rel="manifest" href="manifest.json"><link rel="stylesheet" href="styles.css"></head><body><div class="app"><main class="content">
+<div class="back"><a href="screen_1_dashboard.html">← Kembali</a><h2 style="margin:0">Analisis Keuangan</h2></div>
+<div class="stats"><div class="stat"><span class="small">Pemasukan</span><b class="green" id="aIncome">Rp0</b></div><div class="stat"><span class="small">Pengeluaran</span><b class="red" id="aExpense">Rp0</b></div></div>
+<div class="section"><div class="card"><h2>Cashflow</h2><div class="chart" id="chart"></div><div class="legend"><span><i class="dot" style="background:#10b981"></i>Pemasukan</span><span><i class="dot" style="background:#f87171"></i>Pengeluaran</span></div></div></div>
+<div class="section"><div class="card"><h2>Insight</h2><p class="small" id="insight">Belum ada transaksi untuk dianalisis. Semua nilai masih Rp0.</p></div></div>
+</main>
+    <nav class="nav">
+      <a class="" href="screen_1_dashboard.html"><span>⌂</span>Beranda</a>
+      <a class="" href="screen_2_bank_sync.html"><span>▣</span>Akun</a>
+      <a class="" href="screen_3_transaction_input.html"><span>＋</span>Transaksi</a>
+      <a class="active" href="screen_4_analytics.html"><span>◔</span>Analisis</a>
+    </nav></div><script src="app.js"></script><script>
+function renderA(){const t=totals();document.getElementById('aIncome').textContent=rupiah(t.income);document.getElementById('aExpense').textContent=rupiah(t.expense);const max=Math.max(t.income,t.expense,1);document.getElementById('chart').innerHTML=[['Pemasukan',t.income,''],['Pengeluaran',t.expense,'exp']].map(x=>`<div class="barwrap"><div class="bar ${x[2]}" style="height:${Math.max(2,x[1]/max*100)}%"></div><div class="barlabel">${x[0]}</div></div>`).join('');document.getElementById('insight').textContent=t.income===0&&t.expense===0?'Belum ada transaksi untuk dianalisis. Semua nilai masih Rp0.':`Saldo bersih saat ini ${rupiah(t.balance)}.`}renderA();
+</script></body></html>
