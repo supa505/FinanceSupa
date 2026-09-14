@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinTech Dashboard</title>
+    <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="flex justify-center min-h-screen pt-4 pb-4">
+    <div class="w-full max-w-[390px] bg-[#FAFAFA] h-full min-h-[844px] relative rounded-[40px] shadow-2xl overflow-hidden border-8 border-gray-900">
+        
+        <!-- Content wrapper -->
+        <div class="h-full overflow-y-auto no-scrollbar pb-24">
+            
+            <!-- Header -->
+            <div class="px-6 pt-10 pb-4 flex justify-between items-center">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center overflow-hidden">
+                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Arief" alt="Avatar" class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <p class="text-xs text-gray-500 font-medium">14 Sep 2026</p>
+                        <h1 class="text-base font-bold text-gray-800">Selamat Pagi, Arief 👋</h1>
+                    </div>
+                </div>
+                <button class="relative w-10 h-10 rounded-full bg-white shadow-sm flex items-center justify-center border border-gray-100 text-gray-600">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
+                    <span class="absolute top-2 right-2 w-2.5 h-2.5 bg-red-500 rounded-full border-2 border-white"></span>
+                </button>
+            </div>
+
+            <!-- Total Balance Card -->
+            <div class="px-6 mb-6">
+                <div class="bg-emerald-600 rounded-2xl p-5 text-white shadow-lg relative overflow-hidden">
+                    <div class="absolute top-[-20%] right-[-10%] w-32 h-32 bg-white opacity-10 rounded-full blur-2xl"></div>
+                    <div class="absolute bottom-[-20%] left-[-10%] w-32 h-32 bg-white opacity-10 rounded-full blur-2xl"></div>
+                    
+                    <div class="flex justify-between items-center mb-1">
+                        <p class="text-emerald-100 text-sm font-medium">Total Saldo</p>
+                        <button class="text-emerald-100 hover:text-white" id="toggle-balance">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" id="eye-icon"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+                        </button>
+                    </div>
+                    <h2 class="text-3xl font-bold mb-3 tracking-tight" id="balance-amount">Rp 47.850.000</h2>
+                    <div class="flex items-center gap-2">
+                        <div class="bg-emerald-500/50 rounded-full px-2 py-1 flex items-center gap-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                            <span class="text-xs font-medium text-white">+Rp 2.340.000</span>
+                        </div>
+                        <span class="text-xs text-emerald-100">bulan ini</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Action Buttons -->
+            <div class="px-6 mb-8 flex justify-between">
+                <div class="flex flex-col items-center gap-2">
+                    <button class="w-14 h-14 bg-white rounded-2xl shadow-sm border border-gray-100 flex items-center justify-center text-emerald-600 hover:bg-emerald-50 transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+                    </button>
+                    <span class="text-xs font-medium text-gray-600">Catat</span>
+                </div>
+                <div class="flex flex-col items-center gap-2">
+                    <button class="w-14 h-14 bg-white rounded-2xl shadow-sm border border-gray-100 flex items-center justify-center text-blue-600 hover:bg-blue-50 transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3l4 4-4 4"/><path d="M3 11h18"/><path d="M7 21l-4-4 4-4"/><path d="M21 13H3"/></svg>
+                    </button>
+                    <span class="text-xs font-medium text-gray-600">Transfer</span>
+                </div>
+                <div class="flex flex-col items-center gap-2">
+                    <button class="w-14 h-14 bg-white rounded-2xl shadow-sm border border-gray-100 flex items-center justify-center text-orange-500 hover:bg-orange-50 transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                    </button>
+                    <span class="text-xs font-medium text-gray-600">Tagihan</span>
+                </div>
+                <div class="flex flex-col items-center gap-2">
+                    <button class="w-14 h-14 bg-white rounded-2xl shadow-sm border border-gray-100 flex items-center justify-center text-gray-600 hover:bg-gray-50 transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg>
+                    </button>
+                    <span class="text-xs font-medium text-gray-600">Lainnya</span>
+                </div>
+            </div>
+
+            <!-- Cashflow Summary Chart -->
+            <div class="px-6 mb-8">
+                <h3 class="text-sm font-bold text-gray-800 mb-3">Arus Kas (Sep 2026)</h3>
+                <div class="bg-white rounded-2xl p-4 shadow-sm border border-gray-100">
+                    <div class="flex justify-between mb-4">
+                        <div>
+                            <p class="text-xs text-gray-500 mb-1">Pemasukan</p>
+                            <p class="text-sm font-bold text-emerald-500">Rp 12.500.000</p>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-xs text-gray-500 mb-1">Pengeluaran</p>
+                            <p class="text-sm font-bold text-red-500">Rp 8.750.000</p>
+                        </div>
+                    </div>
+                    
+                    <div class="h-24 w-full relative pt-2">
+                        <div class="absolute bottom-0 left-0 w-full h-[60px] flex items-end justify-around px-4">
+                            <div class="w-12 bg-emerald-400 rounded-t-md relative group transition-all h-[100%]">
+                                <div class="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-[10px] py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                                    + 12.5 Jt
+                                </div>
+                            </div>
+                            <div class="w-12 bg-red-400 rounded-t-md relative group transition-all h-[70%]">
+                                <div class="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-[10px] py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                                    - 8.75 Jt
+                                </div>
+                            </div>
+                        </div>
+                        <div class="absolute bottom-0 left-0 w-full h-[1px] bg-gray-200"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Transactions List -->
+            <div class="px-6 mb-8">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="text-sm font-bold text-gray-800">Transaksi Terbaru</h3>
+                    <a href="#" class="text-xs font-semibold text-emerald-600 hover:text-emerald-700">Lihat Semua →</a>
+                </div>
+                
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden flex flex-col">
+                    
+                    <div class="p-4 flex items-center justify-between border-b border-gray-50 hover:bg-gray-50 transition-colors">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-bold text-gray-800">Gaji Bulanan</h4>
+                                <p class="text-xs text-gray-500">Pemasukan</p>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-sm font-bold text-emerald-500">+Rp 12.500.000</p>
+                            <div class="flex items-center justify-end gap-1 mt-1">
+                                <div class="w-2 h-2 rounded-full bg-emerald-500"></div>
+                                <span class="text-[10px] text-gray-400">Tersinkronisasi</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-4 flex items-center justify-between border-b border-gray-50 hover:bg-gray-50 transition-colors">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-bold text-gray-800">Belanja Supermarket</h4>
+                                <p class="text-xs text-gray-500">Kebutuhan Harian</p>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-sm font-bold text-red-500">-Rp 458.000</p>
+                            <div class="flex items-center justify-end gap-1 mt-1">
+                                <div class="w-2 h-2 rounded-full bg-emerald-500"></div>
+                                <span class="text-[10px] text-gray-400">Tersinkronisasi</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-4 flex items-center justify-between border-b border-gray-50 hover:bg-gray-50 transition-colors">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-yellow-100 flex items-center justify-center text-yellow-600">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-bold text-gray-800">Tagihan Listrik</h4>
+                                <p class="text-xs text-gray-500">Tagihan</p>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-sm font-bold text-red-500">-Rp 350.000</p>
+                            <div class="flex items-center justify-end gap-1 mt-1">
+                                <div class="w-2 h-2 rounded-full bg-emerald-500"></div>
+                                <span class="text-[10px] text-gray-400">Tersinkronisasi</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-4 flex items-center justify-between border-b border-gray-50 hover:bg-gray-50 transition-colors">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center text-purple-600">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12V7H5a2 2 0 0 1 0-4h14v4"/><path d="M3 5v14a2 2 0 0 0 2 2h16v-5"/><path d="M18 12a2 2 0 0 0 0 4h4v-4Z"/></svg>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-bold text-gray-800">GoPay Top-up</h4>
+                                <p class="text-xs text-gray-500">E-Wallet</p>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-sm font-bold text-red-500">-Rp 500.000</p>
+                            <div class="flex items-center justify-end gap-1 mt-1">
+                                <div class="w-2 h-2 rounded-full bg-yellow-400"></div>
+                                <span class="text-[10px] text-gray-400">Menunggu</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-4 flex items-center justify-between hover:bg-gray-50 transition-colors">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center text-orange-600">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></svg>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-bold text-gray-800">Makan Siang</h4>
+                                <p class="text-xs text-gray-500">Makanan & Minuman</p>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-sm font-bold text-red-500">-Rp 45.000</p>
+                            <div class="flex items-center justify-end gap-1 mt-1">
+                                <div class="w-2 h-2 rounded-full bg-emerald-500"></div>
+                                <span class="text-[10px] text-gray-400">Tersinkronisasi</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Bottom Navigation Bar -->
+        <div class="absolute bottom-0 left-0 w-full h-[88px] bg-white border-t border-gray-100 rounded-b-[32px] px-6 pb-6 pt-3 flex justify-between items-center shadow-[0_-10px_20px_-10px_rgba(0,0,0,0.05)]">
+            
+            <button class="flex flex-col items-center gap-1 text-emerald-600 w-12">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                <span class="text-[10px] font-semibold">Beranda</span>
+            </button>
+            
+            <button class="flex flex-col items-center gap-1 text-gray-400 hover:text-gray-600 transition-colors w-12">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12V7H5a2 2 0 0 1 0-4h14v4"/><path d="M3 5v14a2 2 0 0 0 2 2h16v-5"/><path d="M18 12a2 2 0 0 0 0 4h4v-4Z"/></svg>
+                <span class="text-[10px] font-medium">Akun</span>
+            </button>
+            
+            <div class="relative -top-6">
+                <button class="w-14 h-14 bg-emerald-600 rounded-full flex items-center justify-center text-white shadow-[0_8px_16px_rgba(5,150,105,0.4)] hover:bg-emerald-700 transition-colors transform hover:scale-105">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                </button>
+            </div>
+            
+            <button class="flex flex-col items-center gap-1 text-gray-400 hover:text-gray-600 transition-colors w-12">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+                <span class="text-[10px] font-medium">Analisis</span>
+            </button>
+            
+            <button class="flex flex-col items-center gap-1 text-gray-400 hover:text-gray-600 transition-colors w-12">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                <span class="text-[10px] font-medium">Profil</span>
+            </button>
+            
+        </div>
+    </div>
+
+    <script>
+        const toggleBtn = document.getElementById('toggle-balance');
+        const balanceElement = document.getElementById('balance-amount');
+        const eyeIcon = document.getElementById('eye-icon');
+        let isVisible = true;
+        
+        toggleBtn.addEventListener('click', () => {
+            isVisible = !isVisible;
+            if (isVisible) {
+                balanceElement.textContent = 'Rp 47.850.000';
+                eyeIcon.innerHTML = '<path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/>';
+            } else {
+                balanceElement.textContent = 'Rp ••••••••';
+                eyeIcon.innerHTML = '<path d="M9.88 9.88a3 3 0 1 0 4.24 4.24"/><path d="M10.73 5.08A10.43 10.43 0 0 1 12 5c7 0 10 7 10 7a13.16 13.16 0 0 1-1.67 2.68"/><path d="M6.61 6.61A13.526 13.526 0 0 0 2 12s3 7 10 7a9.74 9.74 0 0 0 5.39-1.61"/><line x1="2" y1="2" x2="22" y2="22"/>';
+            }
+        });
+    </script>
+</body>
+</html>
